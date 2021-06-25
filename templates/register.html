@@ -1,0 +1,224 @@
+<!-- <!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Register Here</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+  <style>
+    body, html {
+      height: 100%;
+      background-color: lavender;
+      background-size:cover;
+      background-image: url(offwhite.jpg);
+    }
+
+    .login-container {
+      position: relative;
+      height: 100%;
+    }
+
+    .login-box {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      padding: 15px;
+      background-color: transparent;
+      box-shadow: 0px 5px 5px lightyellow;
+      border-radius: 5px;
+      border-top: 1px solid lightcyan;
+      border: 1px solid black;
+    }
+
+    .login-header {
+      text-align: center;
+    }
+
+    .login-header img {
+      width: 200px;
+    }
+    
+    .forgot-password {
+      text-align: right;
+      float: right;
+      font-size: 10px
+    }
+
+    #error-message {
+      display: none;
+    }
+  </style>
+<body>
+  <div class="login-container">
+    <div class="col-xs-12 col-sm-4 col-sm-offset-4 login-box">
+      <div class="login-header">
+        <img src="/static/images/work.png"/>
+      </div>
+      <div id="error-message" class="alert alert-danger"></div>
+      <form onsubmit="return false;" method="post">
+        <div class="form-group">
+            <label for="name">Name</label>
+             <input
+               type="text"
+               class="form-control"
+               id="Name"
+               name='name'
+               placeholder="Enter your Name">
+           </div>
+           <div class="form-group">
+            <label for="name">Contact Number</label>
+             <input
+               type="text"
+               class="form-control"
+               id="number"
+               name='number'
+               placeholder="Enter your Contact Number">
+           </div>
+         <div class="form-group">
+          <label for="name">Email</label>
+          <input
+            type="email"
+            class="form-control"
+            id="email"
+            name='email'
+            placeholder="Enter your email">
+        </div>
+        <div class="form-group">
+          <label for="password1">Password</label>
+          <input
+            type="password"
+            class="form-control"
+            id="password"
+            name='password1'
+            placeholder="Enter your password">
+        </div>
+        <div class="form-group">
+            <label for="password2">Confirm Password</label>
+             <input
+               type="password"
+               class="form-control"
+               id="password"
+               name='password2'
+               placeholder="Enter your password">
+           </div>
+       <center><div class="form-row">
+		<button type="submit" class="btn btn-danger">Submit</button>
+        </div> </center>
+</form>
+</div>
+</div>
+</body> -->
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="">
+<link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+<link href="{% static 'https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css' %}" rel="stylesheet">
+<link href="{% static 'css/style.css' %}" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Dosis:200,300,400,500,600,700" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Roboto:200,300,400,500,600,700" rel="stylesheet">
+
+
+</head>
+<body>
+
+<!-- HEADER =============================-->
+<header class="item header margin-top-0">
+<div class="wrapper">
+	<nav role="navigation" class="navbar navbar-white navbar-embossed navbar-lg navbar-fixed-top">
+	<div class="container">
+		<div class="navbar-header">
+			<button data-target="#navbar-collapse-02" data-toggle="collapse" class="navbar-toggle" type="button">
+			<i class="fa fa-bars"></i>
+			<span class="sr-only">Toggle navigation</span>
+			</button>
+			<a href="index.html" class="navbar-brand brand"> WORKDAY </a>
+		</div>
+			
+		<div id="navbar-collapse-02 mr-2" class="collapse navbar-collapse">
+			<ul class="nav navbar-nav navbar-right">
+				<li class="propClone"><a href="{% url 'index' %}">Home</a></li>
+				<li class="propClone"><a href="product">C.D.C</a></li>
+				<li class="propClone"><a href="checkout">BLOG</a></li>
+				<li class="propClone"><a href="contact">CONTACT</a></li>
+				{% if user.is_authenticated %}
+				
+				<li class="propClone"><a href="logout">Log OUT</a></li>
+				{% else %}
+
+				<li class="propClone"><a href="login">Login</a></li>
+				<li class="propClone"><a href="register">Register</a></li>
+				{% endif %}
+			</ul>
+		</div>
+	</div>
+	</nav>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12 text-center">
+				<div class="text-pageheader">
+					<div class="subtext-image" data-scrollreveal="enter bottom over 1.7s after 0.0s">
+						 
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+</header>
+<center>
+ <h1><p style="color:black;">REGISTRATION</p></h1>
+   <nav>
+    {% if messages %}
+		{% for message in messages %}
+	  
+		<div class="alert alert-warning alert-dismissible fade show" role="alert">
+		  <strong>Congratulations!!</strong> YOUR FORM IS SUBMITTED
+		</div>
+		
+		{% endfor %}
+		{% endif %}
+	</nav>
+<form action='register' method='POST'>
+  {% csrf_token %}
+  <div class="container register-form">
+    <div class="form">
+        <div class="note">
+        <div class="form-content">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <input type="text" name='fullname' class="form-control" placeholder="Your Name" value=""/>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name='number' class="form-control" placeholder="Phone Number *" value=""/>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <input type="text" name='email'class="form-control" placeholder="Email *" value=""/>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name='skills'class="form-control" placeholder= "Skills" value=""/>
+                    </div>
+                    <input id="password" name="password" placeholder="password" class="form-control" type="text"></div><br>
+                </div>
+                <input type="file" class="form-control" id="inputGroupFile02" name='img'>
+            </div>
+          <div class="form-row">
+            <button type="submit" class="btn btn-danger">Submit</button>
+
+          </div> 
+
+        </div>
+    </div>
+</div>
+</form>
+</body>
+</html>
+      <center>

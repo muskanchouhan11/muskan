@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit and Update Records</title>
+</head>
+<body>
+    <center>
+        <h1>STUDENT DETAILS</h1>
+        <hr/>
+        <table border="1">
+            <tr class="table-danger">
+                <th class="">Id</th>
+                <th class="">Fullname</th>
+                <th class="">Number</th>
+                <th class="">Email</th>
+                <th class="">Skills</th>
+                <th class="">Image</th>
+                <th class="">Edit Options</th>
+                <th class="">Delete Options</th>
+
+            </tr>
+            {% for displaystudent in Hrproject %}
+            <tr>
+                <td>{{displaystudent.id}}</td>
+                <td>{{displaystudent.fullname}}</td>
+                <td>{{displaystudent.number}}</td>
+                <td>{{displaystudent.email}}</td>
+                <td>{{displaystudent.skills}}</td>
+                <td><img src="{{displaystudent.img.url}}" style='height:auto; width:80px'></td>
+                <td><a href="/edit/{{displaystudent.id}}">Edit</a></td>
+                <td><a href="/delete/{{displaystudent.id}}" onclick="return confirm('Are You Sure Want To Delete The Current Details ??')">Delete</a></td>
+            </tr>
+            {% endfor %}
+         </table>
+          <a href="{% url 'index' %} " class="btn btn-info"  role="button">Back To Home Page</a> | <a href="{% url 'profile2' %} " class="btn btn-info"  role="button">Back To Edit page</a>
+    </center>
+</body>
+</html>
+
+  

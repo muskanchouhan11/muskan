@@ -1,0 +1,117 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="">
+<link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+<link href="{% static 'https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css' %}" rel="stylesheet">
+<link href="{% static 'css/style.css' %}" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Dosis:200,300,400,500,600,700" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Roboto:200,300,400,500,600,700" rel="stylesheet">
+
+</head>
+<body>
+<p><div background-color: lightblue; <p> <div>
+<!-- HEADER =============================-->
+<header class="item header margin-top-0">
+<div class="wrapper">
+	<nav role="navigation" class="navbar navbar-white navbar-embossed navbar-lg navbar-fixed-top">
+	<div class="container">
+		<div class="navbar-header">
+			<button data-target="#navbar-collapse-02" data-toggle="collapse" class="navbar-toggle" type="button">
+			<i class="fa fa-bars"></i>
+			<span class="sr-only">Toggle navigation</span>
+			</button>
+			<a href="index.html" class="navbar-brand brand"> WORKDAY </a>
+		</div>
+			
+		<div id="navbar-collapse-02 mr-2" class="collapse navbar-collapse">
+			<ul class="nav navbar-nav navbar-right">
+				<li class="propClone"><a href="{% url 'index' %}">Home</a></li>
+				<li class="propClone"><a href="product">C.D.C</a></li>
+				<li class="propClone"><a href="checkout">BLOG</a></li>
+				<li class="propClone"><a href="contact">CONTACT</a></li>
+				{% if user.is_authenticated %}
+				
+				<li class="propClone"><a href="logout">Log OUT</a></li>
+				{% else %}
+
+				<li class="propClone"><a href="login">Login</a></li>
+				<li class="propClone"><a href="register">Register</a></li>
+				{% endif %}
+			</ul>
+		</div>
+	</div>
+	</nav>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12 text-center">
+				<div class="text-pageheader">
+					<div class="subtext-image" data-scrollreveal="enter bottom over 1.7s after 0.0s">
+						 
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+</header>
+<center>
+ <h1><p style="color:black;">C.D.C Verification</p></h1>
+    
+        <hr/>
+        <table  border="1">
+        <table border=" 2px solid bla">
+        
+    <form action='/verification' method='POST'>
+        {% csrf_token %}
+    {% comment %} <center>
+        <h1>Edit and Update the Student Details</h1>
+        <hr/> {% endcomment %}
+        {% comment %} <form method='POST' action='/update/{{Hrproject.id}}'>
+            {% csrf_token %} {% endcomment %}
+        <table border="5px">
+
+            <tr>
+                <td><p style="color:black;">             Id</td></p>
+                <td><input type ="text" name="id" value="{{Hrproject.id}}" readonly></td>
+            </tr>
+            <tr>
+                <td><p style="color:black;">Name</td></p>
+                <td><input type ="text" name="fullname" value="{{Hrproject.fullname}}" readonly>></td>
+            </tr>
+            <tr>
+                <td><p style="color:black;">Number<td></p>
+                <input type ="text"name="number" value="{{Hrproject.number}}" readonly>>
+            </tr>
+            <tr>
+                <td><p style="color:black;">Email<td></p>
+                <input type ="text" name="email" value="{{Hrproject.email}}" readonly>>
+            </tr>
+            <tr>
+                <td><p style="color:black;">Skills</td></p>
+                <td><input type ="text" name="skills" value="{{Hrproject.skills}}" readonly>></td>
+            </tr>
+        <tr>
+            <td><p style="color:black;">Image<td></p>
+            <input type ="file" name="img" value="{{Hrproject.img}}" readonly>>
+        </tr>
+        <tr>
+            <td><p style="color:black;">Verified<td></p>
+            <input type ="text" name="verified" value="{{Hrproject.verified}}">
+        </tr>
+        </table>
+        <input type="submit" value="update"/> | <a href="{% url 'profile2' %}">Back To Home Page</a>
+        {% if messages %}
+        {% for updaterecord in messages %}
+
+        <h3 style="color:cadetblue;">{{updaterecord}}</h3>
+
+        {% endfor %}
+        {% endif %}
+        </form>
+    </center>
+</body>
+</html>

@@ -1,0 +1,120 @@
+{% load  static %}
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="">
+<link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+<link href="{% static 'css/style.css' %}" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Dosis:200,300,400,500,600,700" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Roboto:200,300,400,500,600,700" rel="stylesheet">
+<body>
+<!-- HEADER =============================-->
+<header class="item header margin-top-0">
+<div class="wrapper">
+	<nav role="navigation" class="navbar navbar-white navbar-embossed navbar-lg navbar-fixed-top">
+	<div class="container">
+		<div class="navbar-header">
+			<button data-target="#navbar-collapse-02" data-toggle="collapse" class="navbar-toggle" type="button">
+			<i class="fa fa-bars"></i>
+			<span class="sr-only">Toggle navigation</span>
+			</button>
+			<a href="index.html" class="navbar-brand brand"> WORK DAY </a>
+		</div>
+
+		
+		<div id="navbar-collapse-02 mr-2" class="collapse navbar-collapse">
+			<ul class="nav navbar-nav navbar-right">
+				<li class="propClone"><a href="index.html">Home</a></li>
+				<li class="propClone"><a href="product">C.D.C</a></li>
+				<li class="propClone"><a href="checkout">BLOG</a></li>
+				<li class="propClone"><a href="contact">CONTACT</a></li>
+				{% if user.is_authenticated %}
+				<li>{{user.username}}</li>
+				<li class="propClone"><a href="logout">Log OUT</a></li>
+				{% else %}
+
+				<li class="propClone"><a href="login">Login</a></li>
+				<li class="propClone"><a href="register">Register</a></li>
+				{% endif %}
+			</ul>
+		</div>
+	</div>
+	</nav>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12 text-center">
+				<div class="text-pageheader">
+					<div class="subtext-image" data-scrollreveal="enter bottom over 1.7s after 0.0s">
+						 Campus To Corporate
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+</header>
+
+<!-- CONTENT =============================-->
+<section class="item content">
+<div class="container toparea">
+	<div class="underlined-title">
+		<div class="editContent">
+			<h1 class="text-center latestitems">Career Services</h1>
+		</div>
+		<div class="wow-hr type_short">
+			<span class="wow-hr-h">
+			<i class="fa fa-star"></i>
+			<i class="fa fa-star"></i>
+			<i class="fa fa-star"></i>
+			</span>
+		</div>
+	</div>
+	<div class="product-details text-left">
+					<p>
+<style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+</style>
+</head>
+<body>
+
+<h2>Campus To Corporate</h2>
+
+
+In today’s climate of high competition and fast changing trends, it is necessary that an engineer is capable of striking the right balance between technical core knowledge and soft skills like communication, presentation etc.
+
+Today, basic competencies such as first class academics record and technical skills need to be supported by other competencies like
+
+Domain Knowledge
+Excellent communication skills
+General awareness
+An emotional quotient
+ 
+
+Considering the above demands of the industry and with the objective of enhancing placements, GMIT is proud to introduce “Campus to Corporate” program. It includes personality development workshops aimed to minimize disparity between the two environment and hence, been aptly named “Campus to Corporate. Today, what a recruiter looks for in addition to an engineering qualification is a well rounded individual with management and business skills. Hence analytical ability followed by domain knowledge and communication skills is predominant factors on which key employability skills of students are assessed. “Communication – the human connection is the key to personal and career success”. Paul J Meyer. Effective communication skills are integral to our personality as it gets reflected in both our professional and personal lives. Lack of adequate communication skills has been found to a major impediment in conducting day to day business in offices and at work stations. As such, good communication skills contribute tremendously to the overall personality of an individual. Whether it’s facing an interview or speaking in public or making contracts or building relationship, the individual with effective communication skills stands at an advantage.
+
+Methodology:
+
+Soft skill workshop - workshops are an effective and fun way to improve skills. Our workshops have been designed to improve students with skills and awareness to make them effective communicators. The workshops provide powerful tools and the opportunity to practice so students are not just knowledgeable, but also confident in their ability to use the acquired knowledge and skills.
+Mock interview and test - Mock interview sessions are conducted by HR professionals of esteemed organizations to provide a real time experience and to judge the employability skills of the students. Situation and judgment test are also conducted by technical professionals who would enable the evaluation of a candidate’s domain knowledge, personality and analytical skills. It will also help in assessing the student’s pro-activeness and problem solving ability in work related situations.
+Assessment and feedback - Students are assessed at regular intervals and individual score cards are shared, thereby enabling them to identify their areas of improvement and work on self development to unleash their true potential.
+
+
+</body>
+</html>

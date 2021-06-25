@@ -1,0 +1,97 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="">
+<link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+<link href="{% static 'https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css' %}" rel="stylesheet">
+<link href="{% static 'css/style.css' %}" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Dosis:200,300,400,500,600,700" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Roboto:200,300,400,500,600,700" rel="stylesheet">
+
+
+</head>
+<body>
+
+<!-- HEADER =============================-->
+<header class="item header margin-top-0">
+<div class="wrapper">
+	<nav role="navigation" class="navbar navbar-white navbar-embossed navbar-lg navbar-fixed-top">
+	<div class="container">
+		<div class="navbar-header">
+			<button data-target="#navbar-collapse-02" data-toggle="collapse" class="navbar-toggle" type="button">
+			<i class="fa fa-bars"></i>
+			<span class="sr-only">Toggle navigation</span>
+			</button>
+			<a href="index.html" class="navbar-brand brand"> WORKDAY </a>
+		</div>
+			
+		<div id="navbar-collapse-02 mr-2" class="collapse navbar-collapse">
+			<ul class="nav navbar-nav navbar-right">
+				<li class="propClone"><a href="{% url 'index' %}">Home</a></li>
+				<li class="propClone"><a href="product">C.D.C</a></li>
+				<li class="propClone"><a href="checkout">BLOG</a></li>
+				<li class="propClone"><a href="contact">CONTACT</a></li>
+				{% if user.is_authenticated %}
+				
+				<li class="propClone"><a href="logout">Log OUT</a></li>
+				{% else %}
+
+				<li class="propClone"><a href="login">Login</a></li>
+				<li class="propClone"><a href="register">Register</a></li>
+				{% endif %}
+			</ul>
+		</div>
+	</div>
+	</nav>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12 text-center">
+				<div class="text-pageheader">
+					<div class="subtext-image" data-scrollreveal="enter bottom over 1.7s after 0.0s">
+						 
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+</header>
+<center>
+ <h1><p style="color:black;">STUDENT DETAILS</p></h1>
+ 
+        <hr/>
+        <table border="1">
+        <center>
+            <tr class="table-primary">
+                <th><p style="color:black;">Full name</th></p>
+                <th><p style="color:black;">Number</th></p>
+                <th><p style="color:black;">Email</th></p>
+                <th><p style="color:black;">Skills</th></p>
+                <th><p style="color:black;">Image</th></p>
+                <th><p style="color:black;">Edit</th></p>
+                <th><p style="color:black;">Delete</th></p>
+                <th><p style="color:black;">Verified</th></p>
+            </tr>
+            <center>
+            <tr>
+                <td><p style="color:black;">{{displaystudent.fullname}}</td></p>
+                <td><p style="color:black;">{{displaystudent.number}}</td></p>
+                <td><p style="color:black;">{{displaystudent.email}}</td>  </p>
+                <td><p style="color:black;">{{displaystudent.skills}}</td>  </p>
+                <td><p style="color:black;"><img src="{{displaystudent.img.url}} style='height:auto; width:80px'"></td></p>
+                <td><p style="color:black;"><a class="btn btn-primary" href="/edit/{{displaystudent.id}}" role="button">Edit</a></td></p>
+                <td><p style="color:black;"><a class="btn btn-danger" href="/delete/{{displaystudent.id}}" role="button" onclick="return confirm('Are You Sure Want To Delete The Current Details ??')">Delete</a></td></p>
+                <td><p style="color:black;">{{displaystudent.verified}}</td> </p>
+                <!-- <td><a href="/delete/{{displaystudent.id}}" onclick="return confirm('Are You Sure Want To Delete The Current Details ??')">Delete</a></td> -->
+
+            </tr>
+               
+    </table><br>
+<a href="{% url 'index' %} " class="btn btn-info"  role="button">Back To Home Page</a>  
+    </center>
+</body>
+</html>
+<center>
